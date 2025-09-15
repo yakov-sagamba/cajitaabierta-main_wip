@@ -1,0 +1,20 @@
+Lignes de commande Gitlab
+
+
+//Dans le terminal :
+
+git fetch
+
+git branch
+
+git branch -r
+
+git checkout -b devel origin/devel
+
+git checkout devel
+
+git add .
+
+git commit -m « hello git»
+
+git push -u origin devel
