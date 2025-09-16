@@ -23,6 +23,8 @@ Adafruit_SSD1306 display(SCREEN_WIDTH, SCREEN_HEIGHT, &Wire, -1);
 /// Variable ////
 int x = 0;
 int y = 0;
+int jailX = 0;
+//int jailY = 0; 
 int myStateMachine = 1;
 int compteur = 0; // int pour faire anime qui change d'écran
 int pot1 = 0;
@@ -42,7 +44,9 @@ void setup() {
   display.setTextSize(1);           
   display.setTextColor(1);        
   display.setCursor(0, 0); // Coordonnées d'affichage du texte
-  display.print(F("Devoir 1 - Running horses Young Thug")); // Affiche le message entre guillemets
+  display.print(F("Devoir 2 - ")); // Affiche le message entre guillemets
+  display.setCursor(0, 20);
+  display.printf("Running horses Young Thug 2.0");
   display.display();
   delay(2000); // Pause de 2 secondes
 }
@@ -93,19 +97,23 @@ void loop() {
     display.setCursor(30,40);
     display.printf("keep goin'?");
   } else if(compteur == 4){ // 4eme ecran
-    display.drawBitmap(30,0, My_bitmapysl_court_invert,64,64,1); // young thug in court
-    display.drawBitmap(x,y,My_bitmapjail_cell_invert,64,64,1);
+    display.drawBitmap(0,0, My_bitmapysl_court_invert,64,64,1); // young thug in court
+    display.drawBitmap(jailX,-30,My_bitmapjail_cell_invert,128,128,1);
   } 
-  pot1 = analogRead(25);
+  pot1 = analogRead(25); // set up pour map potentiometre with image
   x = map(pot1, 0, 4095, 0, 64);
   pot2 = analogRead(26);
   y = map(pot2, 0, 4095, 0, 64);
+  
+  pot1 = analogRead(25); // set up pour move jail cell sur X over YSL Thug
+  jailX = map(pot1, 0, 4095, -30, 128);
+
 
   display.display();
   //compteur = compteur + 1; // Compteur pour afficher les ecrans
   if (compteur == 5){
     compteur = 0;
   }
-  delay(100); // 5 secondes par screen
+  delay(75); 
 }
 
