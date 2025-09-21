@@ -5,7 +5,7 @@
 #include <ysl_court.h>
 #include <jail_door.h>
 
-// Devoir 01
+// Devoir 02
 // https://www.youtube.com/watch?v=rQcDVL15GIo
 /*
 Nigga, hustlers don't stop, they keep goin' (Yeah)
@@ -114,6 +114,6 @@ void loop() {
   if (compteur == 5){
     compteur = 0;
   }
-  delay(75); 
+  delay(100); // delay de refresh
 }
 
