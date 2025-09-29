@@ -21,7 +21,7 @@ float normalisePot1;
 
 WiFiUDP myUdp; // start wifi instance
 unsigned int myReceivePort = 8001;
-IPAddress mySendIp(192, 168, 0, 103); // Adresse du serveur
+IPAddress mySendIp(192, 168, 0, 108); // Adresse du serveur
 unsigned int mySendPort = 8000; // Port de réception Udp
 
 MicroOscUdp<1024> myOsc(&myUdp, mySendIp, mySendPort);
@@ -78,12 +78,12 @@ void loop() {
   // TRIGGER myOnOscMessageReceived() IF AN OSC MESSAGE IS RECEIVED :
   myOsc.onOscMessageReceived( myOscMessageParser );
 
-    pot1 = analogRead(33); // Lecture de la broche 25 sur le ESP32 // ADC2 weirdness while using WIFI
-    normalisePot1 = pot1/4095.0;
-    Serial.println(normalisePot1);
+    //pot1 = analogRead(33); // Lecture de la broche 25 sur le ESP32 // ADC2 weirdness while using WIFI
+    //normalisePot1 = pot1/4095.0;
+    //Serial.println(normalisePot1);
     // myOsc.sendFloat("/pot", normalisePot1);
-    myOsc.sendInt("/bouton", etatBouton);  
-    // myOsc.sendString("/messageAdresse", "horses dont stop they keep going");
+    //myOsc.sendInt("/bouton", etatBouton);  
+    //myOsc.sendString("/messageAdresse", "horses dont stop they keep going");
     etatBouton = digitalRead(brocheBouton);
     Serial.println(etatBouton);
 
