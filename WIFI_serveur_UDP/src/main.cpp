@@ -41,7 +41,9 @@ void myOscMessageParser( MicroOscMessage& receivedOscMessage) {
   //Serial.println(floatArgument);
   int intArgument = receivedOscMessage.nextAsInt(); // pour afficher le contenue du message
   Serial.print(intArgument);
-}
+  //maString = receivedOscMessage.nextAsString();
+  //Serial.print(maString);
+} 
 }
 
 
