@@ -12,6 +12,7 @@ Adafruit_SSD1306 display(SCREEN_WIDTH, SCREEN_HEIGHT, &Wire, -1);
 // Déclaration de variable
 int pot1 = 0;
 float normalisePot1;
+const char* maString;
 
 /// WiFi ///
 #include <WiFi.h>
@@ -39,10 +40,10 @@ void myOscMessageParser( MicroOscMessage& receivedOscMessage) {
  // Serial.println("hello world!");
 //float floatArgument = receivedOscMessage.nextAsFloat();
   //Serial.println(floatArgument);
-  int intArgument = receivedOscMessage.nextAsInt(); // pour afficher le contenue du message
-  Serial.print(intArgument);
-  //maString = receivedOscMessage.nextAsString();
-  //Serial.print(maString);
+  //int intArgument = receivedOscMessage.nextAsInt(); // pour afficher le contenue du message
+  //Serial.print(intArgument);
+  maString = receivedOscMessage.nextAsString();
+  Serial.print(maString);
 } 
 }
 
