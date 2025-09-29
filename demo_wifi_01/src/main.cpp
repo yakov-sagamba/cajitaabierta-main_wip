@@ -82,7 +82,8 @@ void loop() {
     normalisePot1 = pot1/4095.0;
     Serial.println(normalisePot1);
     // myOsc.sendFloat("/pot", normalisePot1);
-    myOsc.sendInt("/bouton", etatBouton);  
+    // myOsc.sendInt("/bouton", etatBouton);  
+    myOsc.sendString("/messageAdresse", "horses dont stop they keep going");
     etatBouton = digitalRead(brocheBouton);
     Serial.println(etatBouton);
 
